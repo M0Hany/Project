@@ -30,7 +30,7 @@
             });
         });
 
-        
+
         var box = document.getElementById('response_container');
         var button = document.getElementById('fetchActorsButton');
         function displayContainer() {
@@ -38,65 +38,100 @@
         }
         button.addEventListener('click', displayContainer);
     });
+
 </script>
 </head>
 <body>
+<div class="validaion">
+    <?php
+    function validpassword()
+    {
+        $pass=$_POST['password'];
+        $confirmpass=$_POST['confirm_password'];
+
+
+        if (strlen($pass) > 0) {
+            if (strlen($pass) > 0 && strlen($pass) < 8) {
+                return "the password is too short";
+            } else if ($pass != $confirmpass) {
+                return "the passwords not matched";
+            }
+            $patternspecial = "/[$!^(){}?\[\]<>~%@#&*+=_-]{1,}/i";
+            $patternchar = "/[a-z]{1,}/i";
+            $patternnums = "/\d{1,}/";
+            if (!preg_match($patternspecial, $pass)) {
+                return "The password must <br> contains at least 1 special character";
+            } else if (!preg_match($patternchar, $pass)) {
+                return "The password must <br> contains at least 1 characters";
+            } else if (!preg_match($patternnums, $pass)) {
+                return "The password must <br> contains at least 1 number";
+            }
+        }
+    }
+    ?>
+</div>
 
 <?php include 'header.php'; ?>
 <div class="main">
-    <form  id="myForm">
+    <form action="" id="myForm" method="post">
         <div class="form_container">
             <section class="half_form">
                 <span>
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name"><br>
+                    <input type="text" id="name" name="name" required><br>
                 </span>
                 <span>
                     <label for="birthdate">Birthdate</label>
-                    <input type="date" id="birthdate" name="birthdate">
+                    <input type="date" id="birthdate" name="birthdate" required>
                     <div class="hover-container"><button type="button" id="fetchActorsButton"><i class="fa-solid fa-circle-user"></i></button>
                         <div class="tip-box">Discover shared celebrity birthdays!</div>
                     </div><br>
                 </span>
                 <span>
                     <label for="phone">Phone</label>
-                    <input type="text" id="phone" name="phone"><br>
+                     <input type="tel" id="phone" name="phone" placeholder="123-454-678-47" pattern="[0-9]{3}(-?)[0-9]{3}(-?)[0-9]{3}(-?)[0-9]{2}" required><br>
                 </span>
                 <span>
                     <label for="address">Address</label>
-                    <input type="text" id="address" name="address"><br>
+                    <input type="text" id="address" name="address" required ><br>
                 </span>
             </section>
             <section class="half_form">
                 <span>
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username"><br>
+                    <input type="text" id="username" name="username" required><br>
                 </span>
                 <span>
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email"><br>
+                    <input type="email" id="email" name="email" required><br>
                 </span>
                 <span>
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password"><br>
+                    <input type="password" id="password" name="password" required><br>
                 </span>
                 <span>
                     <label for="confirm_password">Confirm Password</label>
-                    <input type="password" id="confirm_password" name="confirm_password"><br>
+                    <input type="password" id="confirm_password" name="confirm_password" required><br>
+                    <h5 style="color: #37ff00">
+                        <?php
+                            if(isset($_POST['submit'])){
+                                echo validpassword();
+                            }
+                        ?>
+                    </h5>
                 </span>
             </section>
         </div>
 
-        <div> 
-            <button type="submit" class="button">Submit</button>
+        <div class="button">
+            <input type = "submit" name = "submit" value = "Submit">
         </div>
     </form>
     <div class="actor-list" id="response_container">
-        
-    
+
+
         <ul class="actor-items">
            <li><div class="loadingio-spinner-spinner-2by998twmg8"><div class="ldio-yzaezf3dcmj">
-<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
 </div></div></li>
         </ul>
     </div>
@@ -104,3 +139,4 @@
 
 </body>
 </html>
+

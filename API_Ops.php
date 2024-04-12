@@ -30,7 +30,7 @@ if(isset($_POST['birthdate'])) {
     // Decode JSON response into PHP associative array
     $data = json_decode($responseData, true);
 
-    if ($data !== null && isset($data['data']['bornToday']['edges'])) {
+    if ($data != null && isset($data['data']['bornToday']['edges'])) {
         // Array to store actor names
         $actorNames = [];
         $curl = curl_init();
