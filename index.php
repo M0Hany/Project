@@ -99,7 +99,7 @@
             <section class="half_form">
                 <span>
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required><br>
+                    <input type="text" id="username" name="username" pattern="\w+" required><br>
                 </span>
                 <span>
                     <label for="email">Email</label>
