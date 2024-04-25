@@ -60,6 +60,5 @@ ul:hover #current_tab:hover{
 
 ul:hover #current_tab{
     transition: all 0.5s;
-    background-color: #57cc99;
     color:black;
 }

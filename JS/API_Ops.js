@@ -1,13 +1,11 @@
 $(document).ready(function() {
     $('#fetchActorsButton').click(function(event) {
         $('.response_container').html('<p>Loading</p>');
-        // Prevent default button click behavior
+
         event.preventDefault();
 
-        // Get birthdate value
         var birthdate = $('[name="birthdate"]').val();
 
-        // Send AJAX request
         $.ajax({
             type: 'POST',
             url: 'API_Ops.php',

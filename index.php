@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="CSS/index.css">
     <script src="https://kit.fontawesome.com/8b6dba93f9.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
     <script>
     $(document).ready(function() {
         $('#fetchActorsButton').click(function(event) {
@@ -40,15 +42,18 @@
     });
 
 </script>
+
+
 </head>
 <body>
+
+
 <div class="validaion">
     <?php
     function validpassword()
     {
         $pass=$_POST['password'];
         $confirmpass=$_POST['confirm_password'];
-
 
         if (strlen($pass) > 0) {
             if (strlen($pass) > 0 && strlen($pass) < 8) {
@@ -72,8 +77,10 @@
 </div>
 
 <?php include 'header.php'; ?>
+<?php include 'footer.php'; ?>
+
 <div class="main">
-    <form action="" id="myForm" method="post">
+    <form action="DB_Ops.php" id="myForm" method="post">
         <div class="form_container">
             <section class="half_form">
                 <span>
@@ -99,7 +106,7 @@
             <section class="half_form">
                 <span>
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" pattern="\w+" required><br>
+                    <input type="text" id="username" name="username" required><br>
                 </span>
                 <span>
                     <label for="email">Email</label>

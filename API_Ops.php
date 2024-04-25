@@ -18,7 +18,8 @@ if(isset($_POST['birthdate'])) {
         CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => [
             "X-RapidAPI-Host: imdb8.p.rapidapi.com",
-            "X-RapidAPI-Key: 2ab2284bdamsh00d3c9c858d8423p1cf603jsnb500c421f28a"
+            "X-RapidAPI-Key:  cc6dc20e8dmsh2ba375255403d77p120154jsn8beb251186a3"
+            /// 'cc6dc20e8dmsh2ba375255403d77p120154jsn8beb251186a3'
         ],
     ]);
 
@@ -43,7 +44,7 @@ if(isset($_POST['birthdate'])) {
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
                 "X-RapidAPI-Host: imdb8.p.rapidapi.com",
-                "X-RapidAPI-Key: 2ab2284bdamsh00d3c9c858d8423p1cf603jsnb500c421f28a"
+                "X-RapidAPI-Key: cc6dc20e8dmsh2ba375255403d77p120154jsn8beb251186a3"
             ],
         ]);
 
